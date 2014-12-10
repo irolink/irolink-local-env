@@ -37,5 +37,7 @@ build/
 .vagrant/
 /vendor/
 .env
+*.swp
+*~
 /src/
 .DS_Store
