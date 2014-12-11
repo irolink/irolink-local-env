@@ -1,10 +1,10 @@
 server {
     listen 80;
     # listen 443 ssl;
-    server_name www.vimmanbot.local;
+    server_name www.irolink.local;
 
-    access_log /var/log/nginx/www.vimmanbot.access.log;
-    error_log /var/log/nginx/www.vimmanbot.error.log warn;
+    access_log /var/log/nginx/www.irolink.access.log;
+    error_log /var/log/nginx/www.irolink.error.log warn;
 
     # for Gzip
     gzip on;
@@ -15,8 +15,8 @@ server {
     gzip_disable "Mozilla/4";
 
     ## for SSL
-    #ssl_certificate /vagrant/files/ssl/vimmanbot.local.crt;
-    #ssl_certificate_key /vagrant/files/ssl/vimmanbot.local.key;
+    #ssl_certificate /vagrant/files/ssl/irolink.local.crt;
+    #ssl_certificate_key /vagrant/files/ssl/irolink.local.key;
     #ssl_protocols SSLv3 TLSv1;
     #ssl_ciphers RC4-SHA:HIGH:!ADH;
     #ssl_prefer_server_ciphers on;
@@ -24,14 +24,14 @@ server {
     #ssl_session_timeout 10m;
 
     location / {
-        root /vagrant/src/vimmanbot-app/public;
+        root /vagrant/src/irolink-app/public;
         index index.html;
     }
 
     #location ~ ^/api/(.*)$ {
     #    #proxy_pass http://127.0.0.1:3031;
     #    include uwsgi_params;
-    #    uwsgi_pass unix:///tmp/uwsgi_flask-demo-app.sock;
+    #    uwsgi_pass unix:///tmp/uwsgi_irolink-app.sock;
     #    uwsgi_param SCRIPT_NAME /api;
     #    uwsgi_param PATH_INFO /$1;
     #}
@@ -39,7 +39,7 @@ server {
     location ~ ^/api/(.*)$ {
         #proxy_pass http://127.0.0.1:3031;
         include uwsgi_params;
-        uwsgi_pass unix:///tmp/uwsgi_vimmanbot-app_api.sock;
+        uwsgi_pass unix:///tmp/uwsgi_irolink-app_api.sock;
         uwsgi_param SCRIPT_NAME /api;
         uwsgi_param PATH_INFO /$1;
     }
