@@ -1,0 +1,11 @@
+
+- name: Instal easy_install
+  apt: state=latest name=python-setuptools
+
+- name: Install Pip
+  apt: state=latest name=python-pip
+
+#- name: Install Pip via easy_install
+#  command: easy_install pip
+
+
