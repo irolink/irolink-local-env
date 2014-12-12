@@ -8,10 +8,14 @@ end
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "ubuntu/trusty64"
+  # config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "tetsuwo/centos-6.5"
+  config.hostsupdater.remove_on_suspend = true
 
-  config.vm.hostname = "www.irolink.local"
-  config.vm.network :private_network, ip: ENV["IROLINK_LOCAL_ENV_PRIVATE_IP"]
+  config.vm.define :web do |web|
+    web.vm.hostname = "www.irolink.local"
+    web.vm.network :private_network, ip: ENV["IROLINK_LOCAL_ENV_PRIVATE_IP"]
+  end
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", "1024"]

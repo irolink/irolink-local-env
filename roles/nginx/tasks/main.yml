@@ -1,6 +1,8 @@
+- name: Add repository and Install for Nginx
+  yum: state=present name=http://nginx.org/packages/centos/5/noarch/RPMS/nginx-release-centos-5-0.el5.ngx.noarch.rpm
 
 - name: Install Nginx
-  apt: state=latest name=nginx
+  yum: state=present name=nginx
 
 - name: Build Nginx whole configuration file - nginx.conf
   template: src=../templates/nginx.conf.j2 dest=/etc/nginx/nginx.conf
