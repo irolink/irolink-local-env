@@ -10,5 +10,4 @@
     - mysql
     - nginx
     - python
-    #- flask
     - uwsgi
