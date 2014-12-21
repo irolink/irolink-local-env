@@ -12,7 +12,7 @@ This is a Vagrant setup which was equipped with a standard to required tools for
 - uWSGI
 - MySQL 5.6
 - Python 2.7
-- Flask 
+- Flask
 
 
 ## 2. Supported Environment
@@ -63,27 +63,22 @@ At last, execute configurations.
 Make virtualenv set
 
     $ cd /vagrant/src/irolink-app/
-    $ mkdir /vagrant/src/irolink-app/src/api/.venv/
-    $ virtualenv --python=`which python2.7` /vagrant/src/irolink-app/src/api/.venv/
+    $ mkdir /vagrant/src/irolink-app/src/web/.venv/
+    $ virtualenv --python=`which python2.7` /vagrant/src/irolink-app/src/web/.venv/
 
 Source virtualenv
 
-    $ source .venv/bin/activate
+    $ source /vagrant/src/irolink-app/src/web/.venv/bin/activate
 
 Install libraries via pip
 
-    (.venv)$ pip install -r src/api/requirements.txt
-
-Create database setting
-
-    (.venv)$ mysql -u root < src/api/data/sql/mysql_createdb.sql
-    (.venv)$ mysql -u root irolink < src/api/data/sql/mysql_schema.sql
+    (.venv)$ pip install -r /vagrant/src/irolink-app/src/web/requirements.txt
 
 Run app via uwsgi
 
-    (.venv)$ uwsgi --ini /vagrant/src/irolink-app/src/api/config/uwsgi/uwsgi-local-api.ini
+    (.venv)$ uwsgi --ini /vagrant/src/irolink-app/src/web/config/uwsgi/uwsgi-local-web.ini
 
-Access to `www.irolink.local` with your using browser.  
-ex) `http://www.irolink.local/api/questions`
+Access to `www.irolink.local` with your using browser.
+ex) `http://www.irolink.local/`
 
 
