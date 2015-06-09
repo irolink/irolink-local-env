@@ -16,19 +16,18 @@ http {
                       '$status $body_bytes_sent "$http_referer" '
                       '"$http_user_agent" "$http_x_forwarded_for"';
 
-    access_log  /var/log/nginx/access.log  main;
+    access_log off;
 
-    sendfile        on;
-    #tcp_nopush     on;
+    sendfile on;
+    tcp_nopush on;
 
-    #gzip  on;
+    gzip  on;
     server_names_hash_bucket_size 128;
     client_max_body_size 32M;
 
     # for KeepAlive
     keepalive_requests 200;
-    keepalive_timeout 10;
-    #keepalive_timeout 0;
+    keepalive_timeout 60;
 
     # for Header
     server_tokens off;

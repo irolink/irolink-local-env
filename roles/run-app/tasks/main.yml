@@ -1,0 +1,4 @@
+
+- name: Execute RUN-APP Shell
+  command: /bin/sh /vagrant/bin/run-app.sh
+

@@ -8,8 +8,8 @@ end
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  # config.vm.box = "ubuntu/trusty64"
-  config.vm.box = "tetsuwo/centos-6.5"
+  config.vm.box = "nrel/CentOS-6.5-x86_64"
+  # config.vm.box = "tetsuwo/centos-6.5"
   config.hostsupdater.remove_on_suspend = true
 
   config.vm.define :web do |web|

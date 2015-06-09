@@ -48,7 +48,7 @@ Edit `.env`
 
 At last, execute configurations.
 
-    $ source .env && bundle exec vagrant up
+    $ source .env && bundle exec vagrant up && bundle exec ansible-playbook -i local site.yml
 
 
 ## 4. Credential of Environment
@@ -62,21 +62,21 @@ At last, execute configurations.
 
 Make virtualenv set
 
-    $ cd /vagrant/src/irolink-app/
-    $ mkdir /vagrant/src/irolink-app/src/web/.venv/
-    $ virtualenv --python=`which python2.7` /vagrant/src/irolink-app/src/web/.venv/
+    $ cd ~
+    $ mkdir ~/.venv/
+    $ virtualenv --python=`which python2.7` ~/.venv/
 
 Source virtualenv
 
-    $ source /vagrant/src/irolink-app/src/web/.venv/bin/activate
+    $ source ~/.venv/bin/activate
 
 Install libraries via pip
 
-    (.venv)$ pip install -r /vagrant/src/irolink-app/src/web/requirements.txt
+    (.venv)$ sudo pip install -r /vagrant/src/irolink-app/requirements.txt
 
 Run app via uwsgi
 
-    (.venv)$ uwsgi --ini /vagrant/src/irolink-app/src/web/config/uwsgi/uwsgi-local-web.ini
+    (.venv)$ uwsgi --ini /vagrant/src/irolink-app/src/config/uwsgi-local-web.ini
 
 Access to `www.irolink.local` with your using browser.
 ex) `http://www.irolink.local/`

@@ -1,0 +1,5 @@
+- hosts: servers
+  sudo: true
+  gather_facts: false
+  roles:
+    - run-app
