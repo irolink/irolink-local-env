@@ -76,7 +76,7 @@ Install libraries via pip
 
 Run app via uwsgi
 
-    (.venv)$ uwsgi --ini /vagrant/src/irolink-app/src/config/uwsgi-local-web.ini
+    (.venv)$ uwsgi --ini /vagrant/src/irolink-app/src/config/uwsgi-local-web.ini --py-autoreload 1
 
 Access to `www.irolink.local` with your using browser.
 ex) `http://www.irolink.local/`
